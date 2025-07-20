@@ -32,10 +32,8 @@ body.dark-mode {
     --input-border-dark: rgba(255, 255, 255, 0.2);
     --progress-bar-bg-dark: #333;
     --progress-bar-fill-dark: #4CAF50;
-
     --gradient-start-dark: #16213e;
     --gradient-end-dark: #0f3460;
-
     background: linear-gradient(135deg, var(--gradient-start-dark), var(--gradient-end-dark));
     color: var(--text-color-dark);
 }
@@ -286,7 +284,7 @@ body.dark-mode .action-button.primary:hover:not(:disabled) { background-color: #
     font-size: 0.9em;
 }
 
-.time-display, .stopwatch-display, .countdown-display, .pomodoro-display {
+.time-display, .stopwatch-display, .countdown-display {
     font-size: 4em;
     font-weight: 700;
     letter-spacing: 2px;
@@ -295,7 +293,7 @@ body.dark-mode .action-button.primary:hover:not(:disabled) { background-color: #
     color: inherit;
 }
 
-.date-display, .pomodoro-session-info {
+.date-display {
     font-size: 1.2em;
     font-weight: 500;
     margin-bottom: 20px;
@@ -433,71 +431,6 @@ body.dark-mode .progress-bar-container {
 
 body.dark-mode .progress-bar {
     background: var(--progress-bar-fill-dark);
-}
-
-.pomodoro-session-info {
-    font-size: 1.3em;
-    font-weight: 600;
-    margin-bottom: 15px;
-    display: block;
-}
-
-.pomodoro-settings {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.setting-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.pomodoro-settings label {
-    font-size: 1em;
-    opacity: 0.9;
-}
-
-.pomodoro-settings input[type="number"] {
-    width: 70px;
-    padding: 8px;
-    border: 1px solid var(--input-border-light);
-    border-radius: 8px;
-    font-size: 1em;
-    text-align: center;
-    background: var(--input-bg-light);
-    color: inherit;
-    transition: border-color 0.3s ease, background 0.3s ease;
-}
-
-body.dark-mode .pomodoro-settings input[type="number"] {
-    border: 1px solid var(--input-border-dark);
-    background: var(--input-bg-dark);
-}
-
-.pomodoro-settings input[type="number"]:focus {
-    outline: none;
-    border-color: var(--button-bg-light);
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
-}
-
-body.dark-mode .pomodoro-settings input[type="number"]:focus {
-    border-color: var(--button-bg-dark);
-    box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.2);
-}
-
-.pomodoro-settings input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    accent-color: var(--button-bg-light);
-    cursor: pointer;
-}
-
-body.dark-mode .pomodoro-settings input[type="checkbox"] {
-    accent-color: var(--button-bg-dark);
 }
 
 .add-task-input {
@@ -689,11 +622,11 @@ body.dark-mode .task-actions .icon-button.delete-button {
         margin-bottom: 0;
     }
 
-    .time-display, .stopwatch-display, .countdown-display, .pomodoro-display {
+    .time-display, .stopwatch-display, .countdown-display {
         font-size: 3em;
     }
 
-    .date-display, .pomodoro-session-info {
+    .date-display {
         font-size: 1em;
     }
 
@@ -705,11 +638,6 @@ body.dark-mode .task-actions .icon-button.delete-button {
     .countdown-input-group input {
         width: 60px;
         font-size: 1em;
-    }
-
-    .pomodoro-settings {
-        flex-direction: column;
-        align-items: center;
     }
 
     .add-task-input {
@@ -753,12 +681,12 @@ body.dark-mode .task-actions .icon-button.delete-button {
         font-size: 1.5em;
     }
 
-    .time-display, .stopwatch-display, .countdown-display, .pomodoro-display {
+    .time-display, .stopwatch-display, .countdown-display {
         font-size: 2.5em;
         letter-spacing: 1px;
     }
 
-    .date-display, .pomodoro-session-info {
+    .date-display {
         font-size: 0.9em;
     }
 
@@ -769,11 +697,6 @@ body.dark-mode .task-actions .icon-button.delete-button {
 
     .countdown-input-group input {
         width: 50px;
-        font-size: 0.9em;
-    }
-
-    .pomodoro-settings label,
-    .pomodoro-settings input[type="number"] {
         font-size: 0.9em;
     }
 

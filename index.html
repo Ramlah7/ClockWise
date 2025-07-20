@@ -6,9 +6,7 @@
     <title>ClockWise - Time Management</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏰</text></svg>">
     <link rel="manifest" href="manifest.json">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -30,16 +28,12 @@
             <button class="tab-button" data-tab="countdown-timer">
                 <i class="fas fa-hourglass-half"></i> Countdown
             </button>
-            <button class="tab-button" data-tab="pomodoro-timer">
-                <i class="fas fa-tomato"></i> Pomodoro
-            </button>
             <button class="tab-button" data-tab="todo-list">
                 <i class="fas fa-list-check"></i> To-Do List
             </button>
         </nav>
 
         <main class="tab-content">
-            
             <section id="digital-clock" class="tab-pane active">
                 <div class="glass-card clock-card">
                     <div class="time-display">
@@ -53,6 +47,7 @@
                     </button>
                 </div>
             </section>
+
             <section id="stopwatch" class="tab-pane">
                 <div class="glass-card stopwatch-card">
                     <div class="stopwatch-display">
@@ -71,7 +66,6 @@
                 </div>
             </section>
 
-        
             <section id="countdown-timer" class="tab-pane">
                 <div class="glass-card countdown-card">
                     <div class="countdown-input-group">
@@ -92,36 +86,6 @@
                     </div>
                 </div>
             </section>
-            <section id="pomodoro-timer" class="tab-pane">
-                <div class="glass-card pomodoro-card">
-                    <div class="pomodoro-session-info">
-                        <span id="pomodoro-session-type">Work Session</span>
-                        <span id="pomodoro-session-count">(Session 0)</span>
-                    </div>
-                    <div class="pomodoro-display">
-                        <span id="pomodoro-minutes">25</span>:<span id="pomodoro-seconds">00</span>
-                    </div>
-                    <div class="controls">
-                        <button id="pomodoro-start" class="action-button success"><i class="fas fa-play"></i> Start</button>
-                        <button id="pomodoro-pause" class="action-button warning" disabled><i class="fas fa-pause"></i> Pause</button>
-                        <button id="pomodoro-reset" class="action-button danger" disabled><i class="fas fa-redo"></i> Reset</button>
-                    </div>
-                    <div class="pomodoro-settings">
-                        <div class="setting-item">
-                            <label for="work-time-input">Work Time (min):</label>
-                            <input type="number" id="work-time-input" min="1" value="25">
-                        </div>
-                        <div class="setting-item">
-                            <label for="break-time-input">Break Time (min):</label>
-                            <input type="number" id="break-time-input" min="1" value="5">
-                        </div>
-                        <div class="setting-item">
-                            <input type="checkbox" id="auto-start-toggle">
-                            <label for="auto-start-toggle">Auto Start Next Session</label>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <section id="todo-list" class="tab-pane">
                 <div class="glass-card todo-card">
@@ -132,7 +96,6 @@
                     </div>
                     <div class="task-list-container custom-scrollbar">
                         <ul id="task-list" class="task-list">
-                           
                         </ul>
                     </div>
                 </div>
