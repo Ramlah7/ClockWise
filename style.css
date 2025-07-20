@@ -161,7 +161,7 @@ body.dark-mode .tab-button:hover {
 
 body.dark-mode .tab-button.active {
     background: var(--tab-active-bg-dark);
-    color: var(--button-bg-dark);
+    color: #ffffff;
 }
 
 .tab-content {
