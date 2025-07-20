@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClockWise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🕒 ClockWise</h1>
+    <div class="tabs">
+      <button onclick="showTab('clock')">Clock</button>
+      <button onclick="showTab('stopwatch')">Stopwatch</button>
+      <button onclick="showTab('timer')">Timer</button>
+    </div>
+
+    <div id="clock" class="tab-content">
+      <h2 id="digitalClock">00:00:00</h2>
+    </div>
+
+    <div id="stopwatch" class="tab-content" style="display:none;">
+      <h2 id="stopwatchDisplay">00:00:00</h2>
+      <button onclick="startStopwatch()">Start</button>
+      <button onclick="pauseStopwatch()">Pause</button>
+      <button onclick="resetStopwatch()">Reset</button>
+    </div>
+
+    <div id="timer" class="tab-content" style="display:none;">
+      <input type="number" id="minutesInput" placeholder="Minutes" />
+      <h2 id="timerDisplay">00:00</h2>
+      <button onclick="startTimer()">Start</button>
+      <button onclick="resetTimer()">Reset</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
