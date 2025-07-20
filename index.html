@@ -1,39 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ClockWise</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClockWise - Time Management</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏰</text></svg>">
+    <link rel="manifest" href="manifest.json">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🕒 ClockWise</h1>
-    <div class="tabs">
-      <button onclick="showTab('clock')">Clock</button>
-      <button onclick="showTab('stopwatch')">Stopwatch</button>
-      <button onclick="showTab('timer')">Timer</button>
+    <div class="container">
+        <header class="app-header">
+            <h1 class="app-title">ClockWise</h1>
+            <button id="theme-toggle" class="icon-button" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
+
+        <nav class="tab-navigation">
+            <button class="tab-button active" data-tab="digital-clock">
+                <i class="fas fa-clock"></i> Digital Clock
+            </button>
+            <button class="tab-button" data-tab="stopwatch">
+                <i class="fas fa-stopwatch"></i> Stopwatch
+            </button>
+            <button class="tab-button" data-tab="countdown-timer">
+                <i class="fas fa-hourglass-half"></i> Countdown
+            </button>
+            <button class="tab-button" data-tab="pomodoro-timer">
+                <i class="fas fa-tomato"></i> Pomodoro
+            </button>
+            <button class="tab-button" data-tab="todo-list">
+                <i class="fas fa-list-check"></i> To-Do List
+            </button>
+        </nav>
+
+        <main class="tab-content">
+            
+            <section id="digital-clock" class="tab-pane active">
+                <div class="glass-card clock-card">
+                    <div class="time-display">
+                        <span id="clock-hours">00</span>:<span id="clock-minutes">00</span>:<span id="clock-seconds">00</span>
+                    </div>
+                    <div class="date-display">
+                        <span id="clock-day"></span>, <span id="clock-date"></span> <span id="clock-month"></span> <span id="clock-year"></span>
+                    </div>
+                    <button id="toggle-12-24-hour" class="action-button small-button">
+                        Toggle 12/24 Hour
+                    </button>
+                </div>
+            </section>
+            <section id="stopwatch" class="tab-pane">
+                <div class="glass-card stopwatch-card">
+                    <div class="stopwatch-display">
+                        <span id="stopwatch-hours">00</span>:<span id="stopwatch-minutes">00</span>:<span id="stopwatch-seconds">00</span>:<span id="stopwatch-milliseconds">00</span>
+                    </div>
+                    <div class="controls">
+                        <button id="stopwatch-start" class="action-button success"><i class="fas fa-play"></i> Start</button>
+                        <button id="stopwatch-pause" class="action-button warning" disabled><i class="fas fa-pause"></i> Pause</button>
+                        <button id="stopwatch-reset" class="action-button danger" disabled><i class="fas fa-redo"></i> Reset</button>
+                        <button id="stopwatch-lap" class="action-button info" disabled><i class="fas fa-flag"></i> Lap</button>
+                    </div>
+                    <div class="lap-list-container custom-scrollbar">
+                        <ul id="stopwatch-laps" class="lap-list">
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        
+            <section id="countdown-timer" class="tab-pane">
+                <div class="glass-card countdown-card">
+                    <div class="countdown-input-group">
+                        <input type="number" id="countdown-hours-input" min="0" max="99" value="0" placeholder="HH"> :
+                        <input type="number" id="countdown-minutes-input" min="0" max="59" value="0" placeholder="MM"> :
+                        <input type="number" id="countdown-seconds-input" min="0" max="59" value="0" placeholder="SS">
+                    </div>
+                    <div class="countdown-display">
+                        <span id="countdown-hours">00</span>:<span id="countdown-minutes">00</span>:<span id="countdown-seconds">00</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div id="countdown-progress-bar" class="progress-bar"></div>
+                    </div>
+                    <div class="controls">
+                        <button id="countdown-start" class="action-button success"><i class="fas fa-play"></i> Start</button>
+                        <button id="countdown-pause" class="action-button warning" disabled><i class="fas fa-pause"></i> Pause</button>
+                        <button id="countdown-reset" class="action-button danger" disabled><i class="fas fa-redo"></i> Reset</button>
+                    </div>
+                </div>
+            </section>
+            <section id="pomodoro-timer" class="tab-pane">
+                <div class="glass-card pomodoro-card">
+                    <div class="pomodoro-session-info">
+                        <span id="pomodoro-session-type">Work Session</span>
+                        <span id="pomodoro-session-count">(Session 0)</span>
+                    </div>
+                    <div class="pomodoro-display">
+                        <span id="pomodoro-minutes">25</span>:<span id="pomodoro-seconds">00</span>
+                    </div>
+                    <div class="controls">
+                        <button id="pomodoro-start" class="action-button success"><i class="fas fa-play"></i> Start</button>
+                        <button id="pomodoro-pause" class="action-button warning" disabled><i class="fas fa-pause"></i> Pause</button>
+                        <button id="pomodoro-reset" class="action-button danger" disabled><i class="fas fa-redo"></i> Reset</button>
+                    </div>
+                    <div class="pomodoro-settings">
+                        <div class="setting-item">
+                            <label for="work-time-input">Work Time (min):</label>
+                            <input type="number" id="work-time-input" min="1" value="25">
+                        </div>
+                        <div class="setting-item">
+                            <label for="break-time-input">Break Time (min):</label>
+                            <input type="number" id="break-time-input" min="1" value="5">
+                        </div>
+                        <div class="setting-item">
+                            <input type="checkbox" id="auto-start-toggle">
+                            <label for="auto-start-toggle">Auto Start Next Session</label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="todo-list" class="tab-pane">
+                <div class="glass-card todo-card">
+                    <div class="add-task-input">
+                        <input type="text" id="new-task-text" placeholder="Add a new task...">
+                        <input type="datetime-local" id="new-task-deadline">
+                        <button id="add-task-button" class="action-button primary"><i class="fas fa-plus"></i> Add Task</button>
+                    </div>
+                    <div class="task-list-container custom-scrollbar">
+                        <ul id="task-list" class="task-list">
+                           
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
-    <div id="clock" class="tab-content">
-      <h2 id="digitalClock">00:00:00</h2>
-    </div>
-
-    <div id="stopwatch" class="tab-content" style="display:none;">
-      <h2 id="stopwatchDisplay">00:00:00</h2>
-      <button onclick="startStopwatch()">Start</button>
-      <button onclick="pauseStopwatch()">Pause</button>
-      <button onclick="resetStopwatch()">Reset</button>
-    </div>
-
-    <div id="timer" class="tab-content" style="display:none;">
-      <input type="number" id="minutesInput" placeholder="Minutes" />
-      <h2 id="timerDisplay">00:00</h2>
-      <button onclick="startTimer()">Start</button>
-      <button onclick="resetTimer()">Reset</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('ServiceWorker registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>
